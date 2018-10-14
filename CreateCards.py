@@ -3,22 +3,24 @@
 #input: number of cards made (as dictionaries)
 #output: list of these cards
 ListOfCards = []
-NumOfCards = 24
 AttrTypes = ["friendliness", "excercise", "drool", "size"]
 import random
-f = open("dogs.txt","r")
-ListOfNames = f.readlines()
-if NumOfCards <= len(ListOfNames):
-    for x in range(NumOfCards):
-        card = {}
-        card['name'] = ListOfNames[x]
-        random.seed()  
-        card[AttrTypes[0]] = random.randint(0,10)
-        card[AttrTypes[1]] = random.randint(0,10)
-        card[AttrTypes[2]] = random.randint(0,5)
-        card[AttrTypes[3]] = random.randint(0,10)
-        ListOfCards.append(card)
-   
+def CreCards(NumOfCards):
+	f = open("dogs.txt","r")
+	ListOfNames = f.readlines()
+	if NumOfCards <= len(ListOfNames):
+		for x in range(NumOfCards):
+			card = {}
+			card['name'] = ListOfNames[x]
+			random.seed()  
+			card[AttrTypes[0]] = random.randint(0,10)
+			card[AttrTypes[1]] = random.randint(0,10)
+			card[AttrTypes[2]] = random.randint(0,5)
+			card[AttrTypes[3]] = random.randint(0,10)
+			ListOfCards.append(card)
+	return ListOfCards
+        
+
        
         
     

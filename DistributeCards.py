@@ -1,4 +1,3 @@
-
 ''' splits a list in two. returns the two lists as a tuple '''
 def DisCards(ListOfCards):
 	# Extra safety check
