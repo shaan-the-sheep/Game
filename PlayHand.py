@@ -1,4 +1,4 @@
-def PlayHand(card1, card2, category):
+def CompareCards(card1, card2, category):
     a = card1[category]
     b = card2[category]
     if a == b:
@@ -16,10 +16,10 @@ def PlayHand(card1, card2, category):
             winner = card2
         return winner 
 
-def TransferCards(list1,list2,category):
+def PlayHand(list1,list2,category):
     card1 = list1[0]
     card2 = list2[0]
-    winner = PlayHand(card1,card2,category)
+    winner = CompareCards(card1,card2,category)
     if winner == card1:
         # list1 has won this hand.
         # winning card moves from front to back of list1.
@@ -38,6 +38,6 @@ def TransferCards(list1,list2,category):
         list2.append(card1)
      # for debug
     return list1,list2
-        
+
         
     
