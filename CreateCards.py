@@ -2,10 +2,10 @@
 #from dogs.txt and generating random values for the rest. Stores these dictionaries in  a list.
 #input: number of cards made (as dictionaries)
 #output: list of these cards
-ListOfCards = []
 AttrTypes = ["friendliness", "excercise", "drool", "size"]
 import random
 def CreCards(NumOfCards):
+	ListOfCards = []
 	f = open("dogs.txt","r")
 	ListOfNames = f.readlines()
 	if NumOfCards <= len(ListOfNames):
