@@ -10,12 +10,14 @@ for num in lines:
     if len(list1) == 0:
         if len(list2) == num:
             print("yay, card num:", num)
+            print("winner = list2")
         else:
             print("oh no, card num:", num)
     else:
         if len(list2) == 0:
             if len(list1) == num:
                 print("yay, card num:", num)
+                print("winner = list1")
             else:
                 print("oh no, card num:", num)
         else:
