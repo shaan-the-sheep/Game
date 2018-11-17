@@ -28,6 +28,7 @@ def PlayHand(list1,list2,category):
         list1.append(card1)
         list2.remove(card2)
         list1.append(card2)
+        return 1,list1,list2
     else:
         # list2 has won this hand.
         # winning card moves from front to back of list2.
@@ -36,8 +37,7 @@ def PlayHand(list1,list2,category):
         list2.append(card2)
         list1.remove(card1)
         list2.append(card1)
-     # for debug
-    return list1,list2
+        return 2,list1,list2
 
         
     
