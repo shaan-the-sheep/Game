@@ -4,6 +4,12 @@
 #output: list of these cards
 
 import random
+
+Categories = ["drool", "excercise", "friendliness", "size"]
+# create dictionary of categories to help with user input
+Categories_num = { 1:"friendliness", 2:"excercise", 3:"drool", 4:"size" }
+
+
 def CreCards(NumOfCards, Categories):
 	ListOfCards = []
 	f = open("dogs.txt","r")
@@ -25,3 +31,19 @@ def CreCards(NumOfCards, Categories):
         
     
     
+def PrintCard(card, whos_card):
+	print(''); print('')
+	print("===========================================")
+	if whos_card == 1:
+		print("============Your card:==================== ")
+	else:
+		print("============CPU's card:==================== ")
+	print("dog's name: " + card['name'])
+	n = 1
+	for category in Categories:
+		s = str(n) +") " + category + ": " + str(card[category])
+		print(s)
+		n += 1
+	print(''); print('')
+		
+	

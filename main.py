@@ -8,9 +8,7 @@ MIN_CARDS = 2
 MAX_CARDS = 28
 HUMAN = 1
 CPU = 2
-Categories = ["friendliness", "excercise", "drool", "size"]
-# create dictionary of categories to help with user input
-Categories_num = { 1:"friendliness", 2:"excercise", 3:"drool", 4:"size" }
+
 
 def GetNumOfCards():
     NumOfCards = int(input("Please enter number of cards (bigger than " 
@@ -24,21 +22,19 @@ def GetNumOfCards():
 def GetCategory(winner):
     if winner == HUMAN:
         while True:
-            selection = raw_input("Please select a category out of table below, or Quit:\n{}\n".format(Categories_num))
+            selection = raw_input("Please select a category number from your card above [1,2,3,4]: ")
             if selection == "Q" or selection == "Quit" or selection == "q":
                 exit(-1)
-            if int(selection) in Categories_num:
-                return Categories_num[int(selection)]
+            if int(selection) in CreateCards.Categories_num:
+                return CreateCards.Categories_num[int(selection)]
     else:
         num = random.randint(1, 4)
-        category = Categories_num[num]
+        category = CreateCards.Categories_num[num]
     return category
 
 def ShowCard(list,player):
     card = list[0]
-    print("\nThis is the "+ str(player)+"'s card: \n")
-    print(card)
-    print()
+    CreateCards.PrintCard(card, player)
     
 
 def DisplayMainMenu():
@@ -61,12 +57,12 @@ def PlayGameMain():
             break
         print("\nERROR: The number you have entered is invalid\n")
     
-    cards = CreateCards.CreCards(NumOfCards, Categories)
+    cards = CreateCards.CreCards(NumOfCards, CreateCards.Categories)
     list1,list2 = DistributeCards.DisCards(cards)
-    print("This is list 1: ",list1)
+    """print("This is list 1: ",list1)
     print()
     print()
-    print("This is list 2: ",list2)
+    print("This is list 2: ",list2)"""
     
     # start game until one list is empty
     winner = HUMAN    # first hand, make human winner
