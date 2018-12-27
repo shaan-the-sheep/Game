@@ -7,9 +7,9 @@ CPU = 2
 def CompareCards(card1, card2, category):
     a = card1[category]
     b = card2[category]
-    print ("*** a: %d, b: %d" % (a, b))
+    #print ("*** a: %d, b: %d" % (a, b))
     if a == b:
-        print ("*** Equal values Make Human win")
+        #print ("*** Equal values Make Human win")
         return card1  # human always wins if equal
     elif category == "drool":
         if a > b:

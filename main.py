@@ -3,11 +3,13 @@ import random
 import CreateCards
 import DistributeCards
 from PlayHand import PlayHand
+import os
 
 MIN_CARDS = 2
 MAX_CARDS = 28
 HUMAN = 1
 CPU = 2
+
 
 
 def GetNumOfCards():
@@ -45,6 +47,9 @@ def DisplayMainMenu():
 def PlayGameMain():
     """ this is the main function that gets called by main
     """
+    CPU_score = 0
+    HUMAN_score = 0
+    
     while True:
         choice = DisplayMainMenu()    
         if choice == 2: 
@@ -59,10 +64,6 @@ def PlayGameMain():
     
     cards = CreateCards.CreCards(NumOfCards, CreateCards.Categories)
     list1,list2 = DistributeCards.DisCards(cards)
-    """print("This is list 1: ",list1)
-    print()
-    print()
-    print("This is list 2: ",list2)"""
     
     # start game until one list is empty
     winner = HUMAN    # first hand, make human winner
@@ -75,20 +76,26 @@ def PlayGameMain():
             ShowCard(list1,HUMAN)
             category = GetCategory(winner)
             ShowCard(list2,CPU)
-            print("The CPU chose the category: ", category)
+            print("The CPU chose the category: " + category)
+        if len(list1)!= 0 and len(list2)!= 0:
+            raw_input("Press enter to reveal winner: ")
         #winner,list1,list2 = PlayHand.PlayHand(list1,list2,category)
         winner,list1,list2 = PlayHand(list1,list2,category)
         if winner == HUMAN:
             print("You won the round! Congratulations!")
+            HUMAN_score += 1
         elif winner == CPU:
-            print("Oh No! The CPU has won this round.")
-            input("Press enter: ")
-        else:
-            print("crap")
+            print("Oops! The CPU has won this round.")
+            CPU_score += 1
+            
+        if len(list1)!= 0 and len(list2)!= 0:
+            raw_input("Press enter to see your next card: ")
+            os.system('clear') 
+            print("CPU's score = " + str(CPU_score) + " Your score = " + str(HUMAN_score))
     if len(list1) == 0:
-        print("Game over/nThe overall winner is the CPU! Better luck next time!")
+        print("Game over\nThe overall winner is the CPU! Better luck next time!")
     else:
-        print("Game over/nYou won the overall game! Congratulations!")
+        print("Game over\nYou won the overall game! Congratulations!")
     
 PlayGameMain()     
     
