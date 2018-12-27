@@ -1,16 +1,12 @@
 import random
-#import game
 import CreateCards
 import DistributeCards
-from PlayHand import PlayHand
+import PlayHand
 import os
+from globals import HUMAN, CPU
 
 MIN_CARDS = 2
 MAX_CARDS = 28
-HUMAN = 1
-CPU = 2
-
-
 
 def GetNumOfCards():
     NumOfCards = int(input("Please enter number of cards (bigger than " 
@@ -42,7 +38,13 @@ def ShowCard(list,player):
 def DisplayMainMenu():
     choice = int(input("CELEBRITY DOGS\nPlease choose an option: \n1) Play Game \n2) Quit Program \n"))
     return choice
-    
+
+def IsGameFinished(list1,list2):
+    if len(list1) > 0 and len(list2) > 0:
+        return False 
+    else:
+        return True
+        
     
 def PlayGameMain():
     """ this is the main function that gets called by main
@@ -77,10 +79,10 @@ def PlayGameMain():
             category = GetCategory(winner)
             ShowCard(list2,CPU)
             print("The CPU chose the category: " + category)
-        if len(list1)!= 0 and len(list2)!= 0:
+        #if len(list1) > 0 and len(list2) > 0:
+        if not IsGameFinished(list1,list2):
             raw_input("Press enter to reveal winner: ")
-        #winner,list1,list2 = PlayHand.PlayHand(list1,list2,category)
-        winner,list1,list2 = PlayHand(list1,list2,category)
+        winner,list1,list2 = PlayHand.PlayHand(list1,list2,category)
         if winner == HUMAN:
             print("You won the round! Congratulations!")
             HUMAN_score += 1
@@ -88,7 +90,8 @@ def PlayGameMain():
             print("Oops! The CPU has won this round.")
             CPU_score += 1
             
-        if len(list1)!= 0 and len(list2)!= 0:
+        #if len(list1) > 0 and len(list2) > 0:
+        if not IsGameFinished(list1,list2):
             raw_input("Press enter to see your next card: ")
             os.system('clear') 
             print("CPU's score = " + str(CPU_score) + " Your score = " + str(HUMAN_score))

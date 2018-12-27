@@ -1,8 +1,5 @@
-#from main import HUMAN
-#from main import CPU
 
-HUMAN = 1
-CPU = 2
+from globals import HUMAN, CPU
 
 def CompareCards(card1, card2, category):
     a = card1[category]
