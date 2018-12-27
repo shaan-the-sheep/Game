@@ -2,7 +2,7 @@ import random
 #import game
 import CreateCards
 import DistributeCards
-import PlayHand
+from PlayHand import PlayHand
 
 MIN_CARDS = 2
 MAX_CARDS = 28
@@ -76,11 +76,15 @@ def PlayGameMain():
             category = GetCategory(winner)
             ShowCard(list2,CPU)
             print("The CPU chose the category: ", category)
-        winner,list1,list2 = PlayHand.PlayHand(list1,list2,category)
-        if winner == HUMAN or winner == None:
+        #winner,list1,list2 = PlayHand.PlayHand(list1,list2,category)
+        winner,list1,list2 = PlayHand(list1,list2,category)
+        if winner == HUMAN:
             print("You won the round! Congratulations!")
-        else:
+        elif winner == CPU:
             print("Oh No! The CPU has won this round.")
+            input("Press enter: ")
+        else:
+            print("crap")
     if len(list1) == 0:
         print("Game over/nThe overall winner is the CPU! Better luck next time!")
     else:

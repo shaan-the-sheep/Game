@@ -7,7 +7,7 @@ import random
 
 Categories = ["drool", "excercise", "friendliness", "size"]
 # create dictionary of categories to help with user input
-Categories_num = { 1:"friendliness", 2:"excercise", 3:"drool", 4:"size" }
+Categories_num = { 1:"drool", 2:"excercise", 3:"friendliness", 4:"size" }
 
 
 def CreCards(NumOfCards, Categories):
