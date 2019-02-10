@@ -1,3 +1,43 @@
+"""
+How does my program meet the objectives set?  After having completed the solution, I can 
+conclude that all of the requirements decided upon in the design objectives on page … have 
+been met, and the game runs as the task has specified. The user is successfully able to 
+choose whether to quit the program or play the game and is able to play a full game of 
+top trumps before the winner of the overall game is displayed, and the user is again 
+given the option to quit or play again.  
+How easy is my program to use?  Whenever asking for user inputs – such as category or 
+number of cards – the boundary needed from the user is also displayed, making it easy
+ for the user to enter input that is valid. Headings and descriptions such as ‘Your card’
+  and ‘Press enter to reveal winner’ make it relatively easy for users to understand what 
+  is going on and how the game works. //However, when coding and testing my solution, I 
+  found that sometimes the display of cards made it confusing to distinguish between the 
+  user’s present card and cards from other rounds. I tried to clear the screen using 
+  solutions from the internet, such as ‘import os   os.system(‘clear’)’, however these 
+  did not work and I resorted to using many print statements instead.
+How robust is my solution?  As show by my test table on page …, and improvement on page …,
+ all of the user’s input was validated to ensure that the program didn’t have any errors 
+ that impacted the program running successfully. This was good because it allowed the user 
+ to re-enter input and not crash the program. This was done using while loops and if 
+ statements to only continue with the game if valid data had been entered. This shows 
+ that my program is robust as it allows little to no area for error no matter what the 
+ user inputs.//However I could perhaps validate user input if nothing was entered by the 
+ user (if they just press enter) when they were supposed to enter an integer, and instead
+  of displaying an error:  …   , ask them again to input a valid integer.
+Possible Extensions:  As stated previously, my user interface would be better if I 
+could clear the screen every time a new round is being played. If I re-did this project,
+ then I would find a way to clear the screen in a Windows python module – and if left 
+ unsuccessful – perhaps find another way to improve visuality instead of multiple print 
+ statements. //As previously mentioned, I could also improve the robustness of my solution
+  by adding validation for the user pressing enter instead of inputting data when asked to.
+  //Despite meeting all of my success criteria and all requirements set, I planned to also
+   shuffle the stack of cards before displaying them to the user by using random.shuffle(),
+    however ran out of time. I could have implemented a randomising algorithm myself, but it
+     is highly unlikely it will be more effective or efficient than the built-in version.
+      If I had more time, I would thus use the built-in function to shuffle the cards to 
+      increase the randomness of the cards displayed.  
+"""
+
+
 # CreateCards
 # creates number of cards based on user's input as dictionaries, using names
 #from dogs.txt and generating random values for the rest. Stores these dictionaries in  a list.
